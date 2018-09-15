@@ -46,7 +46,7 @@ func createControllerConnection(addr string, tlsCfg *tls.Config) {
 	}
 
 	go func() {
-		for {
+			for {
 			conn, err := listen.Accept()
 
 			if err!=nil {
