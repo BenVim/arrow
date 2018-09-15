@@ -6,6 +6,8 @@ import (
 	"math/rand"
 	"crypto/tls"
 	"net"
+	"arrow/conn"
+	"time"
 )
 
 // GLOBALS
@@ -58,7 +60,18 @@ func createControllerConnection(addr string, tlsCfg *tls.Config) {
 }
 
 //处理每个接入的用户
-func handleTunnelController(conn)  {
+//负责验证身份
+func handleTunnelController(conn net.Conn)  {
+
+	defer func() {
+		conn.Close()
+	}()
+
+	conn.SetReadDeadline(time.Now().Add(10 * time.Second))
+
+
+
+
 
 
 }
